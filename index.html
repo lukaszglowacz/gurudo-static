@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gurudo Geo - Open Source GPS-based Time Tracking System with 100m radius verification. Django REST + React + Vite. Now available on GitHub.">
+    <title>Gurudo Geo - Now Open Source</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(15, 32, 39, 0.3) 100%);
+            border-radius: 20px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(25, 135, 84, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #a0a0a0;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .open-source-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .open-source-badge i {
+            font-size: 1.3rem;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-box h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-box h2 i {
+            font-size: 1.8rem;
+        }
+
+        .info-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #c0c0c0;
+            margin-bottom: 15px;
+        }
+
+        .info-box ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .info-box ul li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #d0d0d0;
+            font-size: 1.05rem;
+        }
+
+        .info-box ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Repository Cards */
+        .repo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .repo-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 185, 129, 0.4);
+            background: rgba(16, 185, 129, 0.05);
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.1);
+        }
+
+        .repo-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .repo-card h3 i {
+            color: #10b981;
+            font-size: 1.4rem;
+        }
+
+        .repo-card p {
+            color: #a0a0a0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #10b981;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: gap 0.3s ease;
+        }
+
+        .repo-link:hover {
+            gap: 12px;
+        }
+
+        .repo-link i {
+            font-size: 1rem;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Notice Box */
+        .notice-box {
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0.1) 0%, rgba(202, 138, 4, 0.05) 100%);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 40px 0;
+            display: flex;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .notice-box i {
+            font-size: 2rem;
+            color: #eab308;
+            flex-shrink: 0;
+        }
+
+        .notice-box .notice-content {
+            flex: 1;
+        }
+
+        .notice-box h3 {
+            color: #fbbf24;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .notice-box p {
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        /* Developer Section */
+        .developer-section {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .developer-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .developer-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .developer-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #10b981;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            transform: translateY(-2px);
+        }
+
+        .contact-link i {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #606060;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .info-box {
+                padding: 30px 20px;
+            }
+
+            .info-box h2 {
+                font-size: 1.6rem;
+            }
+
+            .repo-card {
+                padding: 25px;
+            }
+
+            .notice-box {
+                flex-direction: column;
+                padding: 25px 20px;
+            }
+
+            .developer-section {
+                padding: 30px 20px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .contact-link {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container > * {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .hero {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/gurudo_logo.png" alt="Gurudo Geo Logo" class="logo">
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <div class="open-source-badge">
+                <i class="bi bi-code-slash"></i>
+                Now Open Source
+            </div>
+            <h1>Gurudo Geo</h1>
+            <p class="subtitle">GPS-Based Time Tracking System</p>
+            <p style="color: #b0b0b0; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+                A comprehensive workforce management solution that combines GPS location verification 
+                with precise time tracking within a 100-meter radius.
+            </p>
+            <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://github.com/lukaszglowacz/gurudo-geo-backend-public" target="_blank" style="color: #10b981; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">
+                    <i class="bi bi-server"></i> Backend Repo
+                </a>
+                <span style="color: #404040;">•</span>
+                <a href="https://github.com/lukaszglowacz/gurudo-geo-frontend-public" target="_blank" style="color: #10b981; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 5px;">
+                    <i class="bi bi-window"></i> Frontend Repo
+                </a>
+            </div>
+        </div>
+
+        <div class="notice-box">
+            <i class="bi bi-info-circle-fill"></i>
+            <div class="notice-content">
+                <h3>Important Notice</h3>
+                <p>
+                    As of <strong>January 1, 2026</strong>, Gurudo Geo has officially become open source. 
+                    The complete source code is now freely available for anyone to use, modify, and deploy. 
+                    This website will remain active until <strong>July 2026</strong> for informational purposes only.
+                </p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h2><i class="bi bi-geo-alt-fill"></i> About the Project</h2>
+            <p>
+                Gurudo Geo is a professional-grade time tracking and workforce management system 
+                that leverages GPS technology to ensure employees are physically present at their 
+                designated workplace before they can clock in.
+            </p>
+            <ul>
+                <li>Employees can only start work when within 100 meters of the workplace</li>
+                <li>Real-time GPS location verification using Haversine formula</li>
+                <li>Comprehensive time tracking with automated daily and monthly summaries</li>
+                <li>Multi-workplace and team management dashboard</li>
+                <li>Subscription-based billing with per-seat model via Stripe</li>
+                <li>Automated email workflows and event tracking with Klaviyo</li>
+                <li>PDF reports generation for work sessions</li>
+                <li>Mobile-first responsive design (Swedish UI)</li>
+                <li>Secure authentication with JWT tokens</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h2><i class="bi bi-github"></i> Source Code Repositories</h2>
+            <p>
+                The project is split into two main repositories - backend and frontend. 
+                Both are now publicly available on GitHub for anyone to clone, fork, and deploy.
+            </p>
+            
+            <div class="repo-grid">
+                <a href="https://github.com/lukaszglowacz/gurudo-geo-backend-public" target="_blank" class="repo-card">
+                    <h3><i class="bi bi-server"></i> Backend</h3>
+                    <p>Django REST Framework API with PostgreSQL database, Stripe billing, and Klaviyo email integration.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Django</span>
+                        <span class="tech-badge">Django REST Framework</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                        <span class="tech-badge">Stripe</span>
+                        <span class="tech-badge">Klaviyo</span>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <span class="repo-link">
+                            View Repository <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/lukaszglowacz/gurudo-geo-frontend-public" target="_blank" class="repo-card">
+                    <h3><i class="bi bi-window"></i> Frontend</h3>
+                    <p>React application built with Vite, featuring responsive design with Bootstrap and GPS-based location tracking.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">React</span>
+                        <span class="tech-badge">Vite</span>
+                        <span class="tech-badge">TypeScript</span>
+                        <span class="tech-badge">Bootstrap</span>
+                        <span class="tech-badge">React Router</span>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <span class="repo-link">
+                            View Repository <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h2><i class="bi bi-rocket-takeoff"></i> Getting Started</h2>
+            <p>
+                To deploy your own instance of Gurudo Geo:
+            </p>
+            <ul>
+                <li>Clone both backend and frontend repositories from GitHub</li>
+                <li>Set up PostgreSQL database and configure connection settings</li>
+                <li>Configure environment variables for Django, Stripe API keys, and Klaviyo integration</li>
+                <li>Install Python dependencies and run Django migrations</li>
+                <li>Install Node.js dependencies for the React frontend</li>
+                <li>Configure the frontend API baseURL to point to your Django backend</li>
+                <li>Run development servers or deploy to production hosting</li>
+                <li>Customize subscription tiers, pricing, and geolocation radius as needed</li>
+            </ul>
+            <p style="margin-top: 20px;">
+                Detailed documentation, installation guides, and system requirements are available in each repository's README file.
+            </p>
+        </div>
+
+        <div class="developer-section">
+            <h2>Developer</h2>
+            <div class="developer-info">
+                <div class="developer-name">Łukasz Głowacz</div>
+                <p style="color: #a0a0a0; max-width: 600px;">
+                    Full Stack Developer specializing in Python, Django, React, and TypeScript. 
+                    Passionate about building scalable web applications and contributing to open source.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:contact@lukaszglowacz.com" class="contact-link">
+                        <i class="bi bi-envelope-fill"></i>
+                        contact@lukaszglowacz.com
+                    </a>
+                    <a href="https://github.com/lukaszglowacz" target="_blank" class="contact-link">
+                        <i class="bi bi-github"></i>
+                        GitHub Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Gurudo Geo. Open Source Project.</p>
+        <p>Licensed under MIT License. Free to use, modify, and distribute.</p>
+        <p style="margin-top: 20px; color: #404040;">This website will remain active until July 2026</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add subtle parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                hero.style.opacity = 1 - (scrolled * 0.001);
+            }
+        });
+    </script>
+</body>
+</html>
