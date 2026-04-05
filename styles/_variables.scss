@@ -1,0 +1,54 @@
+// ============================================================
+// GURUDO — styles/_variables.scss
+// SCSS variables (mirrors CSS custom properties)
+// ============================================================
+
+// --- Colors ---
+$bg:            #07070e;
+$bg-surface:    #0c0c1a;
+$bg-card:       #11111e;
+$cyan:          #00e5ff;
+$cyan-dim:      rgba(0, 229, 255, 0.12);
+$cyan-border:   rgba(0, 229, 255, 0.22);
+$cyan-glow:     rgba(0, 229, 255, 0.15);
+$gold:          #e8b84b;
+$gold-dim:      rgba(232, 184, 75, 0.1);
+$gold-border:   rgba(232, 184, 75, 0.25);
+$text:          #f0f0f8;
+$text-2:        #7878a0;
+$text-3:        #3c3c58;
+$border:        rgba(255, 255, 255, 0.07);
+$border-strong: rgba(255, 255, 255, 0.13);
+
+// --- Status colors ---
+$success:       #10b981;
+$error:         #ef4444;
+$error-text:    #ff4d6d;
+
+// --- Typography ---
+$font-display: 'Syne', sans-serif;
+$font-mono:    'DM Mono', monospace;
+
+// --- Radius ---
+$radius:      14px;
+$radius-lg:   22px;
+$radius-full: 9999px;
+
+// --- Spacing ---
+$container-max: 1200px;
+$container-px:  32px;
+$section-py:    120px;
+$navbar-height: 72px;
+
+// --- Breakpoints ---
+$bp-xl:   1200px;
+$bp-lg:   1024px;
+$bp-md:   768px;
+$bp-sm:   640px;
+$bp-xs:   400px;
+
+// --- Easing ---
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+// --- CSS custom property names (for referencing in output) ---
+// Used to keep SCSS in sync with CSS variables used in index.html

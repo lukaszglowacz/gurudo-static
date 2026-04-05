@@ -1,0 +1,12 @@
+# GitHub Pages configuration
+# This file tells GitHub Pages not to use Jekyll processing
+
+# Include these directories/files in the build
+include:
+  - .gitignore
+  - CNAME
+  
+# Exclude development files
+exclude:
+  - README.md
+  - INSTRUKCJA.md

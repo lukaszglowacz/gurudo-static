@@ -1,0 +1,173 @@
+// ============================================================
+// GURUDO — styles/_team.scss
+// ============================================================
+
+.team {
+  background: var(--bg);
+
+  &__grid {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__card {
+    max-width: 620px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      border-color: var(--cyan-border);
+      box-shadow: 0 20px 60px rgba(0, 229, 255, 0.06);
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 28px;
+  }
+
+  &__avatar {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(0, 229, 255, 0.05));
+    border: 2px solid var(--cyan-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--cyan);
+    flex-shrink: 0;
+  }
+
+  &__avatar-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    pointer-events: none;
+  }
+
+  &__card-meta {
+    flex: 1;
+  }
+
+  &__name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  &__role {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--cyan);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  &__location {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-3);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+
+    svg {
+      stroke: var(--text-3);
+      flex-shrink: 0;
+    }
+  }
+
+  &__bio {
+    font-size: 0.95rem;
+    color: var(--text-2);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__links {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  &__link {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-3);
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border-color: var(--cyan-border);
+    }
+  }
+}
+
+// Shared tag component
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-2);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  transition: color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    color: var(--cyan);
+    border-color: var(--cyan-border);
+  }
+}
+
+// Responsive
+@media (max-width: #{$bp-lg}) {
+  .team__card {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .team__grid {
+    justify-content: stretch;
+  }
+}
+
+@media (max-width: #{$bp-sm}) {
+  .team__card {
+    padding: 28px 24px;
+  }
+
+  .team__card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

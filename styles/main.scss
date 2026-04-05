@@ -1,0 +1,22 @@
+// ============================================================
+// GURUDO — styles/main.scss
+// SCSS entry point
+//
+// Compile with:
+//   sass styles/main.scss css/styles.css
+//   sass styles/main.scss css/styles.css --watch
+//
+// Install Sass:
+//   npm install -g sass
+// ============================================================
+
+@import 'variables';
+@import 'base';
+@import 'navbar';
+@import 'hero';
+@import 'about';
+@import 'how-it-works';
+@import 'team';
+@import 'testimonials';
+@import 'contact';
+@import 'footer';
