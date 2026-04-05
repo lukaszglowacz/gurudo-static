@@ -16,29 +16,134 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
-  <title>Gurudo — AI-Driven Development · Stockholm</title>
-  <meta name="description" content="Gurudo connects founders with AI-driven engineers who own the full stack — from architecture to deployment. B2B product contracts. Stockholm, Sweden." />
+  <!-- Primary SEO -->
+  <title>AI Software Development Agency Stockholm | Gurudo</title>
+  <meta name="description" content="AI-driven software development agency in Stockholm. Full stack MVPs for European startups & scale-ups. Fast delivery, transparent process, B2B contracts." />
+  <meta name="keywords" content="AI software development agency, software development Stockholm, full stack developer Europe, MVP development agency, hire developer Sweden, B2B software development, AI-driven development, startup development agency" />
   <meta name="author" content="Łukasz Głowacz" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="https://gurudo.se/" />
+  <link rel="alternate" hreflang="en" href="https://gurudo.se/" />
+
+  <!-- Geo targeting (Stockholm, Sweden) -->
+  <meta name="geo.region"    content="SE-AB" />
+  <meta name="geo.placename" content="Stockholm, Sweden" />
+  <meta name="geo.position"  content="59.3293;18.0686" />
+  <meta name="ICBM"          content="59.3293, 18.0686" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://gurudo.se/" />
-  <meta property="og:title"       content="Gurudo — AI-Driven Development · Stockholm" />
-  <meta property="og:description" content="We connect founders with AI-driven engineers who own the full stack — from architecture to deployment. B2B product contracts." />
+  <meta property="og:title"       content="AI Software Development Agency Stockholm | Gurudo" />
+  <meta property="og:description" content="AI-driven software development agency in Stockholm. Full stack MVPs for European startups & scale-ups. Fast delivery, transparent process, B2B contracts." />
   <meta property="og:image"       content="https://gurudo.se/assets/og-image/gurudo-og-image.png" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:locale"      content="en_US" />
+  <meta property="og:image:alt"   content="Gurudo — AI Software Development Agency Stockholm" />
+  <meta property="og:locale"      content="en_GB" />
+  <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:site_name"   content="Gurudo" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Gurudo — AI-Driven Development · Stockholm" />
-  <meta name="twitter:description" content="We connect founders with AI-driven engineers who own the full stack — from architecture to deployment." />
+  <meta name="twitter:title"       content="AI Software Development Agency Stockholm | Gurudo" />
+  <meta name="twitter:description" content="AI-driven software development agency in Stockholm. Full stack MVPs for European startups & scale-ups. B2B contracts." />
   <meta name="twitter:image"       content="https://gurudo.se/assets/og-image/gurudo-og-image.png" />
+  <meta name="twitter:image:alt"   content="Gurudo — AI Software Development Agency Stockholm" />
+
+  <!-- Structured Data: Organization + Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://gurudo.se/#organization",
+        "name": "Gurudo",
+        "url": "https://gurudo.se",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://gurudo.se/favicon.svg",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://gurudo.se/assets/og-image/gurudo-og-image.png",
+        "description": "AI-driven software development agency in Stockholm, Sweden. Full stack development for startups and scale-ups across Europe.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Stockholm",
+          "addressRegion": "Stockholm County",
+          "addressCountry": "SE"
+        },
+        "areaServed": {
+          "@type": "Place",
+          "name": "Europe"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "availableLanguage": ["English"]
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Łukasz Głowacz",
+          "jobTitle": "Founder & Lead Engineer"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://gurudo.se/#website",
+        "url": "https://gurudo.se",
+        "name": "Gurudo",
+        "description": "AI Software Development Agency Stockholm",
+        "publisher": { "@id": "https://gurudo.se/#organization" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://gurudo.se/#service",
+        "name": "Gurudo — AI Software Development",
+        "url": "https://gurudo.se",
+        "provider": { "@id": "https://gurudo.se/#organization" },
+        "serviceType": "Software Development",
+        "description": "AI-driven full stack software development. MVP builds, product engineering, and dedicated developer contracts for European startups and scale-ups.",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Europe"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Development Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "MVP Development",
+                "description": "Rapid MVP build from idea to production-ready product."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Full Stack Engineering",
+                "description": "End-to-end product ownership — database, backend, frontend, DevOps."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Dedicated Developer Contract",
+                "description": "A dedicated AI-augmented engineer embedded in your team on a B2B contract."
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -47,6 +152,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
   <meta name="theme-color" content="#0a0a14" />
+
+  <!-- Resource hints -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -126,6 +235,8 @@
     <a href="#contact">Contact</a>
     <a href="#contact" class="btn btn--primary">Start a Project</a>
   </div>
+
+  <main id="main-content">
 
   <!-- ======================================================
        HERO
@@ -723,6 +834,8 @@
   <!-- ======================================================
        FOOTER
   ====================================================== -->
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
